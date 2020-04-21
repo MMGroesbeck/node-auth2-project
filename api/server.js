@@ -15,10 +15,13 @@ server.use(cors());
 
 server.use("/api/users", authenticator, usersRouter);
 server.use("/api/register", registerRouter);
-server.use("/api/login", registerRouter);
+server.use("/api/login", loginRouter);
 
 server.get("/", (req, res) => {
   res.json({ api: "up" });
 });
 
 module.exports = server;
+
+// username: Chip password: Bellona department: semiotics
+// username: Ursula password: Anarres, department: politics

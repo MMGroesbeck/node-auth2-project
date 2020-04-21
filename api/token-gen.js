@@ -10,7 +10,8 @@ module.exports = {
 function generateToken(user) {
     const payload = {
         userId: user.id,
-        username: user.username
+        username: user.username,
+        department: user.department
     };
     const secret = secrets.jwtSecret;
     const options = {

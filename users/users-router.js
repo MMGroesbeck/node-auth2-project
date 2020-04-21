@@ -1,9 +1,11 @@
 const router = require("express").Router();
+const jwt = require("jsonwebtoken");
 
 const Users = require("./users-model.js");
 
 router.get("/", (req, res) => {
-  Users.find()
+  const department = jwt.decode(req.headers.authorization).department;
+  Users.findByDepartment(department)
     .then((users) => {
       res.json(users);
     })
