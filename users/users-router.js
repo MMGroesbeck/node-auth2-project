@@ -5,7 +5,7 @@ const Users = require("./users-model.js");
 
 router.get("/", (req, res) => {
   const department = jwt.decode(req.headers.authorization).department;
-  Users.findByDepartment(department)
+  Users.findBy({department: department})
     .then((users) => {
       res.json(users);
     })
